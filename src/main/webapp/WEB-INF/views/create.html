@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <title>Bootstrap Example</title>
+    <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+        .row.content {
+            height: 550px
+        }
+
+        /* Set gray background color and 100% height */
+        .sidenav {
+            background-color: #f1f1f1;
+            height: 100%;
+        }
+
+        /* On small screens, set height to 'auto' for the grid */
+        @media screen and (max-width: 767px) {
+            .row.content {
+                height: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!--<nav class="navbar navbar-inverse visible-xs">-->
+<!--    <div class="container-fluid">-->
+<!--        <div class="navbar-header">-->
+<!--            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">-->
+<!--                <span class="icon-bar"></span>-->
+<!--                <span class="icon-bar"></span>-->
+<!--                <span class="icon-bar"></span>-->
+<!--            </button>-->
+<!--            <a class="navbar-brand" href="#">Logo</a>-->
+<!--        </div>-->
+<!--        <div class="collapse navbar-collapse" id="myNavbar">-->
+<!--            <ul class="nav navbar-nav">-->
+<!--                <li class="active"><a href="#">Dashboard</a></li>-->
+<!--                <li><a href="#">Age</a></li>-->
+<!--                <li><a href="#">Gender</a></li>-->
+<!--                <li><a href="#">Geo</a></li>-->
+<!--            </ul>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</nav>-->
+
+<div class="container-fluid">
+    <div class="row content">
+        <div class="col-sm-3 sidenav hidden-xs">
+            <h2>HOME ADMIN</h2>
+            <ul class="nav nav-pills nav-stacked">
+                <li class="active"><a href="/admin">Home</a></li>
+                <li><a href="/create">Create Blog</a></li>
+                <!-- Dropdown -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                        Ngôn Ngữ
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="?lang=en">English</a>
+                        <a class="dropdown-item" href="?lang=vi">Việt Nam</a>
+                    </div>
+                </li>
+            </ul>
+            <br>
+        </div>
+        <br>
+
+        <div class="col-sm-9" >
+            <div class="well">
+                <h4>Dashboard</h4>
+                <p>Some text..</p>
+            </div>
+            <div class="row">
+                <!--  crud - create-->
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="well">
+                            <form action="/admin/create" method="post">
+                                <table class="table">
+                                    <tr>
+                                        <th th:text="#{Title}"></th>
+                                        <td><input name="title"></td>
+                                    </tr>
+                                    <tr>
+                                        <th th:text="#{Content}"></th>
+                                        <td><input name="content"></td>
+                                    </tr>
+                                    <tr>
+                                        <th th:text="#{Date}"></th>
+                                        <td><input type="date" name="date"></td>
+                                    </tr>
+                                    <tr>
+                                        <th th:text="#{Views}"></th>
+                                        <td><input name="views" value="0"></td>
+                                    </tr>
+                                    <tr>
+                                        <th th:text="#{Likes}"></th>
+                                        <td><input name="likes" value="0"></td>
+                                    </tr>
+                                    <tr>
+                                        <th th:text="#{Dislike}"></th>
+                                        <td><input name="dislike" value="0"></td>
+                                    </tr>
+                                    <tr>
+                                        <th >person</th>
+                                        <td><input name="person"></td>
+                                    </tr>
+                                </table>
+                                <button type="submit" class="btn btn-success" th:text="#{Create}"></button>
+                                <a href="/admin" class="btn btn-success" th:text="#{Quit}"></a>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--           end create -->
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
